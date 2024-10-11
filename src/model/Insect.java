@@ -26,7 +26,7 @@ public abstract class Insect extends Animal{
         this.canFly=canFly;
     }
 
-    public void seDangerous(Boolean dangerous){
+    public void setDangerous(Boolean dangerous){
         isDangerous=dangerous;
     }
 }
