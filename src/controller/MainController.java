@@ -6,9 +6,6 @@ import factory.SpeciesFactory;
 import model.*;
 
 public class Main {
-    //public static void main(String[] args){
-    //  System.out.println("Hello World!");
-    //}
     public static void main(String[] args) {
         AnimalFactory abstractFactory = new AnimalFactory();
         SpeciesFactory mamalSpeciesFactory = abstractFactory.getSpeciesFactory(Constants.Species.MAMMALS);
@@ -24,18 +21,29 @@ public class Main {
         Animal marioTheParrot = birdSpeciesFactory.getAnimal(Constants.Animals.Birds.PARROT);
         // Ca sa accesez metoda specifica trebuie sa fac cast
         if (marioTheParrot instanceof Bird) {
-            Bird bird = (Bird) marioTheParrot;
-            System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", bird.getAvgFlightAltitude());
+            Bird parrot = (Bird) marioTheParrot;
+            System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", parrot.getAvgFlightAltitude());
         }
         System.out.println();
 
         Animal bettyTheAnt=insectSpeciesFactory.getAnimal(Constants.Animals.Insects.ANT);
         bettyTheAnt.setName("Betty");
         if (bettyTheAnt instanceof Insect) {
-            Insect insect = (Insect) bettyTheAnt;
-            System.out.printf("We have an ant named %s with %d legs.\n",insect.getName(), insect.getNrOfLegs());
-            System.out.printf("Is the ant dangerous? %s\n", insect.getDangerous()? "Yes":"No");
-            System.out.printf("Can Betty fly? %s\n", insect.getCanFly()? "Yes":"No");
+            Insect ant = (Insect) bettyTheAnt;
+            System.out.printf("We have an ant named %s with %d legs.\n",ant.getName(), ant.getNrOfLegs());
+            if (ant.getDangerous()){
+                System.out.printf("Is the ant dangerous? YES \n");
+            }
+            else{
+                System.out.printf("Is the ant dangerous? NO \n");
+            }
+
+            if (ant.getCanFly()){
+                System.out.printf("Can Betty fly? YES \n");
+            }
+            else{
+                System.out.printf("Can Betty fly? NO \n");
+            }
         }
         System.out.println();
 
@@ -49,12 +57,23 @@ public class Main {
             System.out.printf("%s swims in %s water at an average depth of %d meters.\n",tedTheShark.getName(),shark.getWaterType()==WaterType.SALTWATER ? "saltwater" : "softwater", shark.getAvgSwimDepth());
         }
         System.out.println();
+
         Animal mimiTheTurtle=reptileSpeciesFactory.getAnimal(Constants.Animals.Reptiles.TURTLE);
         mimiTheTurtle.setName("Mimi");
         if (mimiTheTurtle instanceof Reptile) {
             Reptile turtle=(Reptile) mimiTheTurtle;
             System.out.printf("We have a turtle named %s.\n",mimiTheTurtle.getName());
-            System.out.printf("Does %s lay eggs? %s\n",mimiTheTurtle.getName(), turtle.getLaysEggs()? "Yes":"No");
+            System.out.printf("Does %s lay eggs? %s\n",mimiTheTurtle.getName(), turtle.getLaysEggs()? "YES":"NO");
+        }
+        System.out.println();
+
+        Animal thorTheDog = mamalSpeciesFactory.getAnimal(Constants.Animals.Mammals.DOG);
+        thorTheDog.setName("Thor");
+        if(thorTheDog instanceof Mammal) {
+            Mammal dog = (Mammal) thorTheDog;
+            dog.setPercBodyHair(97f);
+            System.out.printf("We also have a friendly dog named %s.\n",thorTheDog.getName());
+            System.out.printf("It has a normal body temperature equal to %.1f(C) and a body hair percent equal to %.1f%%.",dog.getNormalBodyTemp(), dog.getPercBodyHair());
         }
     }
 }

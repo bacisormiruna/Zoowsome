@@ -2,10 +2,10 @@ package model;
 
 public class Dog extends Mammal{
     public Dog(){
-        super(4,"Dog", 29,95);
+        super(4,"Dog", 29f,95.2f);
     }
 
-    public Dog(float normalBodyTemp, float percBodyHair){
-        super(4,"Dog", normalBodyTemp, percBodyHair);
+    public Dog(String name,float normalBodyTemp, float percBodyHair){
+        super(4,name, normalBodyTemp, percBodyHair);
     }
 }
