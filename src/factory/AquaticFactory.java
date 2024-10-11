@@ -5,6 +5,8 @@ import model.Butterfish;
 import model.Octopus;
 import model.Shark;
 
+import java.util.NoSuchElementException;
+
 public class AquaticFactory extends SpeciesFactory {
     @Override
     public Animal getAnimal(String type){
@@ -15,7 +17,7 @@ public class AquaticFactory extends SpeciesFactory {
         }else if(Constants.Animals.Aquatics.BUTTERFISH.equals(type)){
             return new Butterfish();
         }else{
-            throw new IllegalArgumentException("Invalid animal exception!");
+            throw new NoSuchElementException("Invalid animal exception!");
         }
     }
 }

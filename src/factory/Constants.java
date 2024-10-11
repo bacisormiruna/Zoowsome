@@ -1,5 +1,6 @@
 package factory;
 
+//Lista de specii pentru fiecare animal
 public final class Constants {
     public static final class Species{
         public static final String MAMMALS="MAMMALS";

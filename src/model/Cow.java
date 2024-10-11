@@ -2,7 +2,7 @@ package model;
 
 public class Cow extends Mammal{
     public Cow(){
-        super(4,"Cow", 28,60);
+        super(4,"Cow", 28f,60f);
     }
 
     public Cow(float normalBodyTemp, float percBodyHair){
