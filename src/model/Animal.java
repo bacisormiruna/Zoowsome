@@ -6,7 +6,7 @@ public abstract class Animal {
 
     public Animal(){
         this.nrOfLegs=0;
-        this.name="no name";
+        this.name="No animal name";
     }
     public Animal(Integer nrLegs, String name){
         nrOfLegs=nrLegs;
