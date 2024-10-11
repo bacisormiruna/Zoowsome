@@ -5,7 +5,7 @@ import factory.Constants;
 import factory.SpeciesFactory;
 import model.*;
 
-public class Main {
+public class MainController {
     public static void main(String[] args) {
         AnimalFactory abstractFactory = new AnimalFactory();
         SpeciesFactory mamalSpeciesFactory = abstractFactory.getSpeciesFactory(Constants.Species.MAMMALS);
