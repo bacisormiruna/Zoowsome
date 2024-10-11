@@ -2,6 +2,8 @@ package factory;
 
 import model.*;
 
+import java.util.NoSuchElementException;
+
 import static factory.Constants.Animals.Mammals.CAT;
 import static factory.Constants.Animals.Mammals.DOG;
 
@@ -19,7 +21,7 @@ public class MammalFactory extends SpeciesFactory {
             return new Cow();
         }
         else{
-            throw new IllegalArgumentException("Invalid animal exception!");
+            throw new NoSuchElementException("Invalid animal exception!");
         }
 
     }

@@ -1,5 +1,7 @@
 package factory;
 
+import java.util.NoSuchElementException;
+
 public class AnimalFactory {
     public SpeciesFactory getSpeciesFactory(String type){
         if(Constants.Species.MAMMALS.equals(type)){
@@ -13,6 +15,6 @@ public class AnimalFactory {
         }else if(Constants.Species.AQUATICS.equals(type)){
             return new AquaticFactory();
         }else
-            throw new IllegalArgumentException("Invalid species exception");
+            throw new NoSuchElementException("Invalid species exception");
     }
 }

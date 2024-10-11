@@ -2,6 +2,8 @@ package factory;
 
 import model.*;
 
+import java.util.NoSuchElementException;
+
 
 public class BirdFactory extends SpeciesFactory{
     @Override
@@ -15,7 +17,7 @@ public class BirdFactory extends SpeciesFactory{
         }else if(Constants.Animals.Birds.PARROT.equals(type)){
             return new Parrot();
         }else{
-            throw new IllegalArgumentException("Invalid animal exception!");
+            throw new NoSuchElementException("Invalid animal exception!");
         }
     }
 }
