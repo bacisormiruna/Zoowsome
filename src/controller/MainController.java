@@ -20,60 +20,45 @@ public class MainController {
 
         Animal marioTheParrot = birdSpeciesFactory.getAnimal(Constants.Animals.Birds.PARROT);
         // Ca sa accesez metoda specifica trebuie sa fac cast
-        if (marioTheParrot instanceof Bird) {
-            Bird parrot = (Parrot) marioTheParrot;
-            System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", parrot.getAvgFlightAltitude());
-        }
+        System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", ((Parrot) marioTheParrot).getAvgFlightAltitude());
         System.out.println();
 
-        Animal bettyTheAnt=insectSpeciesFactory.getAnimal(Constants.Animals.Insects.ANT);
+        Animal bettyTheAnt = insectSpeciesFactory.getAnimal(Constants.Animals.Insects.ANT);
         bettyTheAnt.setName("Betty");
-        if (bettyTheAnt instanceof Insect) {
-            Insect ant = (Ant) bettyTheAnt;
-            System.out.printf("We have an ant named %s with %d legs.\n",ant.getName(), ant.getNrOfLegs());
-            if (ant.getDangerous()){
-                System.out.printf("Is the ant dangerous? YES \n");
-            }
-            else{
-                System.out.printf("Is the ant dangerous? NO \n");
-            }
-
-            if (ant.getCanFly()){
-                System.out.printf("Can Betty fly? YES \n");
-            }
-            else{
-                System.out.printf("Can Betty fly? NO \n");
-            }
+        System.out.printf("We have an ant named %s with %d legs.\n",bettyTheAnt.getName(), bettyTheAnt.getNrOfLegs());
+        if (((Ant) bettyTheAnt).getDangerous()){
+            System.out.printf("Is the ant dangerous? YES \n");
+        }
+        else{
+            System.out.printf("Is the ant dangerous? NO \n");
+        }
+        if (((Ant) bettyTheAnt).getCanFly()){
+            System.out.printf("Can Betty fly? YES \n");
+        }
+        else{
+            System.out.printf("Can Betty fly? NO \n");
         }
         System.out.println();
 
-        Animal tedTheShark=aquaticSpeciesFactory.getAnimal(Constants.Animals.Aquatics.SHARK);
+        Animal tedTheShark = aquaticSpeciesFactory.getAnimal(Constants.Animals.Aquatics.SHARK);
         tedTheShark.setName("Ted");
-        if (tedTheShark instanceof Aquatic) {
-            Aquatic shark = (Shark) tedTheShark;
-            //shark.setWaterType(WaterType.SALTWATER); --folosesc atributele setate default
-            //shark.setAvgSwimDepth(2000);
-            System.out.printf("In the Zoowsome we have a shark called %s.\n",tedTheShark.getName());
-            System.out.printf("%s swims in %s water at an average depth of %d meters.\n",tedTheShark.getName(),shark.getWaterType()==WaterType.SALTWATER ? "saltwater" : "softwater", shark.getAvgSwimDepth());
-        }
+        ((Shark) tedTheShark).setWaterType(WaterType.SALTWATER); //pot folosi si toate atributele setate default dar vreau sa testez si setter-ele
+        ((Shark) tedTheShark).setAvgSwimDepth(2000);
+        System.out.printf("In the Zoowsome we have a shark called %s.\n", tedTheShark.getName());
+        //folosesc macro pentru a usura lizibilitatea codului => (condition) ? (return if true) : (return if false);
+        System.out.printf("%s swims in %s water at an average depth of %d meters.\n", tedTheShark.getName(), ((Shark) tedTheShark).getWaterType()==WaterType.SALTWATER ? "saltwater" : "softwater", ((Shark) tedTheShark).getAvgSwimDepth());
         System.out.println();
 
-        Animal mimiTheTurtle=reptileSpeciesFactory.getAnimal(Constants.Animals.Reptiles.TURTLE);
+        Animal mimiTheTurtle = reptileSpeciesFactory.getAnimal(Constants.Animals.Reptiles.TURTLE);
         mimiTheTurtle.setName("Mimi");
-        if (mimiTheTurtle instanceof Reptile) {
-            Reptile turtle=(Turtle) mimiTheTurtle;
-            System.out.printf("We have a turtle named %s.\n",mimiTheTurtle.getName());
-            System.out.printf("Does %s lay eggs? %s\n",mimiTheTurtle.getName(), turtle.getLaysEggs()? "YES":"NO");
-        }
+        System.out.printf("We have a turtle named %s.\n",mimiTheTurtle.getName());
+        System.out.printf("Does %s lay eggs? %s\n",mimiTheTurtle.getName(), ((Turtle) (mimiTheTurtle)).getLaysEggs()? "YES":"NO");
         System.out.println();
 
         Animal thorTheDog = mamalSpeciesFactory.getAnimal(Constants.Animals.Mammals.DOG);
         thorTheDog.setName("Thor");
-        if(thorTheDog instanceof Mammal) {
-            Mammal dog = (Dog) thorTheDog;
-            //dog.setPercBodyHair(97f);
-            System.out.printf("We also have a friendly dog named %s.\n",thorTheDog.getName());
-            System.out.printf("It has a normal body temperature equal to %.1f(C) and a body hair percent equal to %.1f%%.\n",dog.getNormalBodyTemp(), dog.getPercBodyHair());
-        }
+        ((Dog) thorTheDog).setPercBodyHair(97f); //ca sa testez si setter-ul
+        System.out.printf("We also have a friendly dog named %s.\n", thorTheDog.getName());
+        System.out.printf("It has a normal body temperature equal to %.1f(C) and a body hair percent equal to %.1f%%.\n", ((Dog) thorTheDog).getNormalBodyTemp(), ((Dog) thorTheDog).getPercBodyHair());
     }
 }
