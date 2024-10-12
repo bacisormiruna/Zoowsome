@@ -21,7 +21,7 @@ public class MainController {
         Animal marioTheParrot = birdSpeciesFactory.getAnimal(Constants.Animals.Birds.PARROT);
         // Ca sa accesez metoda specifica trebuie sa fac cast
         if (marioTheParrot instanceof Bird) {
-            Bird parrot = (Bird) marioTheParrot;
+            Bird parrot = (Parrot) marioTheParrot;
             System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", parrot.getAvgFlightAltitude());
         }
         System.out.println();
@@ -29,7 +29,7 @@ public class MainController {
         Animal bettyTheAnt=insectSpeciesFactory.getAnimal(Constants.Animals.Insects.ANT);
         bettyTheAnt.setName("Betty");
         if (bettyTheAnt instanceof Insect) {
-            Insect ant = (Insect) bettyTheAnt;
+            Insect ant = (Ant) bettyTheAnt;
             System.out.printf("We have an ant named %s with %d legs.\n",ant.getName(), ant.getNrOfLegs());
             if (ant.getDangerous()){
                 System.out.printf("Is the ant dangerous? YES \n");
@@ -51,9 +51,9 @@ public class MainController {
         tedTheShark.setName("Ted");
         if (tedTheShark instanceof Aquatic) {
             Aquatic shark = (Shark) tedTheShark;
-            shark.setWaterType(WaterType.SALTWATER);
-            shark.setAvgSwimDepth(2000);
-            System.out.printf("We have a shark called %s.\n",tedTheShark.getName());
+            //shark.setWaterType(WaterType.SALTWATER); --folosesc atributele setate default
+            //shark.setAvgSwimDepth(2000);
+            System.out.printf("In the Zoowsome we have a shark called %s.\n",tedTheShark.getName());
             System.out.printf("%s swims in %s water at an average depth of %d meters.\n",tedTheShark.getName(),shark.getWaterType()==WaterType.SALTWATER ? "saltwater" : "softwater", shark.getAvgSwimDepth());
         }
         System.out.println();
@@ -61,7 +61,7 @@ public class MainController {
         Animal mimiTheTurtle=reptileSpeciesFactory.getAnimal(Constants.Animals.Reptiles.TURTLE);
         mimiTheTurtle.setName("Mimi");
         if (mimiTheTurtle instanceof Reptile) {
-            Reptile turtle=(Reptile) mimiTheTurtle;
+            Reptile turtle=(Turtle) mimiTheTurtle;
             System.out.printf("We have a turtle named %s.\n",mimiTheTurtle.getName());
             System.out.printf("Does %s lay eggs? %s\n",mimiTheTurtle.getName(), turtle.getLaysEggs()? "YES":"NO");
         }
@@ -70,10 +70,10 @@ public class MainController {
         Animal thorTheDog = mamalSpeciesFactory.getAnimal(Constants.Animals.Mammals.DOG);
         thorTheDog.setName("Thor");
         if(thorTheDog instanceof Mammal) {
-            Mammal dog = (Mammal) thorTheDog;
-            dog.setPercBodyHair(97f);
+            Mammal dog = (Dog) thorTheDog;
+            //dog.setPercBodyHair(97f);
             System.out.printf("We also have a friendly dog named %s.\n",thorTheDog.getName());
-            System.out.printf("It has a normal body temperature equal to %.1f(C) and a body hair percent equal to %.1f%%.",dog.getNormalBodyTemp(), dog.getPercBodyHair());
+            System.out.printf("It has a normal body temperature equal to %.1f(C) and a body hair percent equal to %.1f%%.\n",dog.getNormalBodyTemp(), dog.getPercBodyHair());
         }
     }
 }
