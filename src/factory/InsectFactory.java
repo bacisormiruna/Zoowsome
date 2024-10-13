@@ -12,7 +12,7 @@ public class InsectFactory extends SpeciesFactory{
         }else if(Constants.Animals.Insects.SPIDER.equals(type)){
             return new Spider();
         }else if(Constants.Animals.Insects.ANT.equals(type)){
-            return new Ant(); //sau as putea cu mici modificari sa am constructor cu parametrii
+            return new Ant(); //sau as putea cu mici modificari sa am constructor cu parametrii insa pentru factory e specific cel fara parametrii (default)
         }else if(Constants.Animals.Insects.BEE.equals(type)){
             return new Bee();
         }else if(Constants.Animals.Insects.COCKROACH.equals(type)){
