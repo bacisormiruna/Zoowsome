@@ -20,12 +20,13 @@ public class MainController {
 
         Animal marioTheParrot = birdSpeciesFactory.getAnimal(Constants.Animals.Birds.PARROT);
         // Ca sa accesez metoda specifica trebuie sa fac cast
-        System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", ((Parrot) marioTheParrot).getAvgFlightAltitude());
+        Parrot parrot = (Parrot) marioTheParrot;
+        System.out.printf("We have a colored bird that has the average flight altitude equal to %d!\n", parrot.getAvgFlightAltitude());
         System.out.println();
 
         Animal bettyTheAnt = insectSpeciesFactory.getAnimal(Constants.Animals.Insects.ANT);
         bettyTheAnt.setName("Betty");
-        System.out.printf("We have an ant named %s with %d legs.\n",bettyTheAnt.getName(), bettyTheAnt.getNrOfLegs());
+        System.out.printf("We have an ant named %s with %d legs.\n", bettyTheAnt.getName(), bettyTheAnt.getNrOfLegs());
         if (((Ant) bettyTheAnt).getDangerous()){
             System.out.printf("Is the ant dangerous? YES \n");
         }
@@ -42,17 +43,18 @@ public class MainController {
 
         Animal tedTheShark = aquaticSpeciesFactory.getAnimal(Constants.Animals.Aquatics.SHARK);
         tedTheShark.setName("Ted");
-        ((Shark) tedTheShark).setWaterType(WaterType.SALTWATER); //pot folosi si toate atributele setate default dar vreau sa testez si setter-ele
+        ((Shark) tedTheShark).setWaterType(WaterType.SOFTWATER); //pot folosi si toate atributele setate default dar vreau sa testez si setter-ele
         ((Shark) tedTheShark).setAvgSwimDepth(2000);
         System.out.printf("In the Zoowsome we have a shark called %s.\n", tedTheShark.getName());
-        //folosesc macro pentru a usura lizibilitatea codului => (condition) ? (return if true) : (return if false);
+        //folosesc operatorul conditional pentru a usura lizibilitatea codului => (condition) ? (return if true) : (return if false);
         System.out.printf("%s swims in %s water at an average depth of %d meters.\n", tedTheShark.getName(), ((Shark) tedTheShark).getWaterType()==WaterType.SALTWATER ? "saltwater" : "softwater", ((Shark) tedTheShark).getAvgSwimDepth());
         System.out.println();
 
         Animal mimiTheTurtle = reptileSpeciesFactory.getAnimal(Constants.Animals.Reptiles.TURTLE);
         mimiTheTurtle.setName("Mimi");
         System.out.printf("We have a turtle named %s.\n",mimiTheTurtle.getName());
-        System.out.printf("Does %s lay eggs? %s\n",mimiTheTurtle.getName(), ((Turtle) (mimiTheTurtle)).getLaysEggs()? "YES":"NO");
+        //(condition) ? (return if true) : (return if false); -operator conditional
+        System.out.printf("Does %s lay eggs? %s\n", mimiTheTurtle.getName(), ((Turtle) (mimiTheTurtle)).getLaysEggs()? "YES":"NO");
         System.out.println();
 
         Animal thorTheDog = mamalSpeciesFactory.getAnimal(Constants.Animals.Mammals.DOG);
